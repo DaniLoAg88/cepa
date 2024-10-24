@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CEPA</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/formulario2.js"></script>
 </head>
 <body>
     <h1>Formulario Alta de nuevo alumno</h1>
-
+    <h2 class="centrado">2️⃣⇾ Datos persona de contacto</h2>
     <form action="../controlador/controlador.php" method="post">
         <input type="hidden" name="origen" value="formulario2">
-        <div class="formulario">
+        <div class="formulario unaColumna">
             <div>
-            <h2>Datos persona de contacto</h2>
             <p>
                 <label for="nombreFamiliar">Nombre persona de contacto: </label>
                 <input type="text" name="nombreFamiliar" id="nombreFamiliar">
@@ -41,9 +41,19 @@
                     ?>
                 </select>
             </p>
+            <p>
+                <input type="checkbox" id="casilla">Acepta la Política de <a href="https://aepd.es/" target="_blank">Provacidad y Protección de Datos</a>
+            </p>
+            <p>
+                <!--                    <label for="btn">Continúe al siguiente paso:</label>-->
+                <input type="submit" name="enviarFormulario2" value="→ Finalizar" class="enviarBoton" disabled id="enviarFormulario2">
+            </p>
                 <p>
-                    <!--                    <label for="btn">Continúe al siguiente paso:</label>-->
-                    <input type="submit" name="enviarFormulario2" value="→ Finalizar" class="enviarBoton">
+                    <?php
+                    if(!empty($_GET["errores"])){
+                        echo "<p class='textoError'>***".$_GET["errores"]."***</p>";
+                    }
+                    ?>
                 </p>
         </div>
         </div>

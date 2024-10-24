@@ -7,12 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Formulario</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/formulario1.js"></script>
 </head>
 <body>
     <h1>Formulario Alta de nuevo alumno</h1>
+    <h2 class="centrado">1️⃣⇾ Datos personales del Alumno </h2>
     <form action="../controlador/controlador.php" method="post">
         <input type="hidden" name="origen" value="formulario1">
-        <div class="formulario">
+        <div class="formulario dosColumnas">
             <div> <!-- IZQUIERDA -->
                 <p>
                 <label for="nombre">Nombre: </label>
@@ -52,13 +54,7 @@
                     <label for="fechaUE">Fecha de terminación estudios: </label>
                     <input type="date" name="fechaUE" id="fechaUE">
                 </p>
-                <p>
-                    <?php
-                    if(!empty($_GET["errores"])){
-                        echo "<p class='textoError'>***".$_GET["errores"]."***</p>";
-                    }
-                    ?>
-                </p>
+
             </div>
             <div> <!-- DERECHA -->
                 <p>
@@ -101,9 +97,19 @@
                 </p>
                 <p>
 <!--                    <label for="btn">Continúe al siguiente paso:</label>-->
-                    <input type="submit" name="enviarFormulario1" value="→ Siguiente" class="enviarBoton">
+                    <input type="submit" name="enviarFormulario1" value="→ Siguiente" class="enviarBoton boton">
                 </p>
             </div>
+
+        </div>
+        <div class="centrado">
+            <p>
+                <?php
+                if(!empty($_GET["errores"])){
+                    echo $_GET["errores"];
+                }
+                ?>
+            </p>
         </div>
     </form>
 </body>
